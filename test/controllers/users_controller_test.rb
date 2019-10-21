@@ -10,5 +10,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_edit_url
     assert_response :success
   end
+  
+  # login_page
+  test "should get root" do
+    get root_url
+    assert_response :success
+  end
 
 end

@@ -4,4 +4,8 @@ class UsersController < ApplicationController
 
   def edit
   end
+  
+  def login_form
+  end
+  
 end

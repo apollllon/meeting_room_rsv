@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#login_form'
+  root 'users#new'
   get 'users/calender', to: 'users#calender'
   get 'users/edit', to: 'users#edit'
 

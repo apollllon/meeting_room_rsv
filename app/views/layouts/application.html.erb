@@ -16,6 +16,8 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="align-items-center pb-2 mb-3 border-bottom">
             <%= yield %>
+            <!-- デバック表示（本番環境では実行しない） -->
+            <%= debug(params) if Rails.env.development? %>
           </div>
         </main>
       </div>

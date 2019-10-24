@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
+  before_action :ban_to_loggin_user, only: [:new, :create]
   
   # マイカレンダー
   def calender
@@ -59,5 +60,12 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    def ban_to_loggin_user
+      if logged_in?
+        flash[:danger] = "ログインは完了しています。"
+        redirect_to current_user
+      end
     end
 end

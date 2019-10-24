@@ -47,4 +47,24 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
   
+  # ログイン済みユーザが新規登録ページアクセスできないテスト
+  test "should redirect new when user already logged in" do
+    log_in_as(@user)
+    get root_path
+    assert !flash.empty?
+    assert_redirected_to @user
+  end
+  
+  test "should redirect create when user already logged in" do
+    log_in_as(@user)
+    post users_path, params: { user: { f_name: @user.f_name,
+                                              l_name: @user.l_name,
+                                              email: @user.email,
+                                              password: "password",
+                                              password_confirmation: "password" } }
+    assert !flash.empty?
+    assert_redirected_to @user
+  end
+  
+  
 end

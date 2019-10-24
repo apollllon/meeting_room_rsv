@@ -8,7 +8,7 @@ class User < ApplicationRecord
                   format: { with: VALID_EMAIL_REGEX },
                   uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   # 渡された文字列のハッシュを返す（パスワード作成の時と同じ）
   def User.digest(string)

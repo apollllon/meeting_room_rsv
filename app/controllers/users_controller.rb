@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  
   # マイカレンダー
   def calender
-  end
-  
-  # マイページ
-  def edit
-  end
-  
-  # ログインフォーム
-  def login_form
   end
   
   def show
@@ -37,7 +31,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # 更新に成功した場合を扱う。
+      flash[:success] = "プロフィールを更新しました"
+      redirect_to @user
     else
       render 'edit'
     end
@@ -49,5 +44,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:f_name, :l_name, :email, :password,
                                      :password_confirmation)
     end
-  
+    
+    # ログイン済みのユーザーかどうか確認
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "ログインしてください。"
+        redirect_to login_url
+      end
+    end
 end

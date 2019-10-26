@@ -1,0 +1,12 @@
+<h2>会議室名</h2>
+<%= @room.name %>
+
+<h2>収容人数</h2>
+<%= @room.capacity %>
+
+<h2>利用金額</h2>
+<%= @room.price %>
+
+<h2>使用可能時間</h2>
+<%= @room.open_at.hour.to_s.rjust(2, "0") %> : <%= @room.open_at.min.to_s.rjust(2, "0") %> ~ 
+<%= @room.close_at.hour.to_s.rjust(2, "0") %> : <%= @room.close_at.min.to_s.rjust(2, "0") %>

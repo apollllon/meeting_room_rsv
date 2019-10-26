@@ -1,5 +1,10 @@
+<% if logged_in? %>
+  <% provide(:login_or_rooms, rooms_path) %>
+<% else %>
+  <% provide(:login_or_rooms, login_path) %>
+<% end %>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <%= link_to "会議室予約システム", "#", class: "navbar-brand col-sm-3 col-md-2 mr-0" %>
+  <%= link_to "会議室予約システム", yield(:login_or_rooms) , class: "navbar-brand col-sm-3 col-md-2 mr-0" %>
   <ul class="navbar-nav px-3">
     <% if logged_in? %>
     <li class="nav-item text-nowrap">

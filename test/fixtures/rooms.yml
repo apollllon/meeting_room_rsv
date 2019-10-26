@@ -1,1 +1,6 @@
-
+example_room:
+  name: room1
+  price: 1000
+  capacity: 10
+  open_at: Time.parse("20010101090000")
+  close_at: Time.parse("20010101210000")

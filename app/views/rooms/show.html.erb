@@ -8,5 +8,4 @@
 <%= @room.price %>
 
 <h2>使用可能時間</h2>
-<%= @room.open_at.hour.to_s.rjust(2, "0") %> : <%= @room.open_at.min.to_s.rjust(2, "0") %> ~ 
-<%= @room.close_at.hour.to_s.rjust(2, "0") %> : <%= @room.close_at.min.to_s.rjust(2, "0") %>
+<%= @room.open_at.strftime("%H:%M") %> ~ <%= @room.close_at.strftime("%H:%M") %>

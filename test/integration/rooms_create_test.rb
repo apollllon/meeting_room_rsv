@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class RoomsCreateTest < ActionDispatch::IntegrationTest
+  
+  def setup
+    @user = users(:michael)
+  end
+  
   test "invalid room information" do
+    log_in_as(@user)
     get new_room_path
     assert_no_difference 'Room.count' do
       post rooms_path, params: {room: { name: "",
@@ -14,6 +20,7 @@ class RoomsCreateTest < ActionDispatch::IntegrationTest
   end
   
   test "valid room information" do
+    log_in_as(@user)
     get new_room_path
     assert_difference 'Room.count', 1 do
       post rooms_path, params: {room: { name: "example room",

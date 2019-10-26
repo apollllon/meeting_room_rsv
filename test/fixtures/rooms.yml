@@ -1,13 +1,1 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  capacity: 
-  open_at: 2019-10-26 07:22:12
-  close_at: 2019-10-26 07:22:12
-
-two:
-  name: MyString
-  capacity: 
-  open_at: 2019-10-26 07:22:12
-  close_at: 2019-10-26 07:22:12

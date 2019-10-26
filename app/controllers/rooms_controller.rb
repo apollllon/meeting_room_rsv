@@ -8,15 +8,17 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:user])    # 実装は終わっていないことに注意!
-    if @user.save
-      # 保存の成功をここで扱う。
+    @room = Room.new(room_params)    # 実装は終わっていないことに注意!
+    if @room.save
+      flash[:success] = "会議室の作成に成功しました。"
+      redirect_to @room
     else
       render 'new'
     end
   end
   
-  def room_params
-    params.require(:room).permit(:name, :capacity, :price, :open_at, :close_at)
-  end
+  private
+    def room_params
+      params.require(:room).permit(:name, :capacity, :price, :open_at, :close_at)
+    end
 end

@@ -50,7 +50,10 @@ class UsersController < ApplicationController
     # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      unless current_user?(@user)
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to(rooms_path)
+      end
     end
     
     def ban_to_loggin_user

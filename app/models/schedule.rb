@@ -1,4 +1,10 @@
 class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :room
+  
+  validates :name, presence: true
+  validates :start_at, presence: true
+  validates :end_at, presence: true
+  validates :user_id, presence: true
+  validates :room_id, presence: true
 end

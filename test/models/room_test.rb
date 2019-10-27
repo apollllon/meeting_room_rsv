@@ -3,7 +3,7 @@ require 'test_helper'
 class RoomTest < ActiveSupport::TestCase
   
   def setup
-    @room = Room.new(name: "Example Room", price: 1000, capacity: 50, open_at: Time.now, close_at: Time.now)
+    @room = Room.new(name: "Example Room", price: 1000, capacity: 50, open_at: Time.parse("20010101090000"), close_at: Time.parse("20010101200000"))
   end
 
   test "should be valid" do

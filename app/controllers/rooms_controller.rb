@@ -10,6 +10,12 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
   
+  # スケジュールの新規作成
+  def new_schedule
+    @room = Room.find(params[:id])
+    @schedule = Schedule.new
+  end
+  
   def new
     @room = Room.new
   end

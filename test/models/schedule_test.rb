@@ -5,10 +5,9 @@ class ScheduleTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     @room = rooms(:example_room)
-    # このコードは慣習的に正しくない
-    @schedule = Schedule.new(name: "Example", content: "Lorem ipsum", 
+    @schedule = @room.schedules.build(name: "Example", content: "Lorem ipsum", 
                               start_at: Time.parse("20010101100000"), end_at: Time.parse("20010101120000"),
-                              user_id: @user.id, room_id: @room.id)
+                              user_id: @user.id)
   end
 
   test "should be valid" do

@@ -1,5 +1,9 @@
-<h1>会議室一覧</h1>
-<%= button_to "新規登録", new_room_path, {method: :get}%>
+<div class="container">
+  <div class="row">
+    <div class="col"><h1>会議室一覧</h1></div>
+    <%= button_to "新規登録", new_room_path, {method: :get, class: "btn-primary col"} %>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>

@@ -1,7 +1,7 @@
 <div class="containe pb-4">
   <div class="row">
     <div class="col-md-8"><h2 class="border-bottom mb-2"><%= @room.name %></h2></div>
-    <div class="col-md"><%= button_to "新規予約", "#", class: "btn-primary" %></div>
+    <div class="col-md"><%= button_to "新規予約", "/rooms/#{@room.id}/schedule", {method: :get, class: "btn-primary"} %></div>
   </div>
 </div>
 

@@ -21,7 +21,7 @@
       <td><%= room.price %>円</td>
       <td><%= room.open_at.strftime("%H:%M") %> ~ <%= room.close_at.strftime("%H:%M") %></td>
       <td><%= button_to "編集", edit_room_path(room), {method: :get} %></td>
-      <td><%= button_to "カレンダー", "#", {method: :get} %></td>
+      <td><%= button_to "カレンダー", room, {method: :get} %></td>
     </tr>
     <% end %>
   </tbody>

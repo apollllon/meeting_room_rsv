@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
   
+  # カレンダーを表示させ、カレンダー上をクリックすると予定を作成できるようにする
   def show
     @room = Room.find(params[:id])
   end

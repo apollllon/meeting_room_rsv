@@ -2,7 +2,7 @@ class Schedule < ApplicationRecord
   belongs_to :user
   belongs_to :room
   
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 140 }
   validates :start_at, presence: true
   validates :end_at, presence: true
   validates :user_id, presence: true

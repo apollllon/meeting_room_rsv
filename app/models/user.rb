@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :schedules, dependent: :destroy
+  
   before_save { self.email = email.downcase }
   validates :f_name, presence: true, length: { maximum: 50 }
   validates :l_name, presence: true, length: { maximum: 50 }

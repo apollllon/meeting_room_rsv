@@ -10,18 +10,12 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
   
-  # スケジュールの新規作成
-  def new_schedule
-    @room = Room.find(params[:id])
-    @schedule = Schedule.new
-  end
-  
   def new
     @room = Room.new
   end
   
   def create
-    @room = Room.new(room_params)    # 実装は終わっていないことに注意!
+    @room = Room.new(room_params)
     if @room.save
       flash[:success] = "会議室の作成に成功しました。"
       redirect_to @room

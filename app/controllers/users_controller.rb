@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :ban_to_loggin_user, only: [:new, :create]
   
   # マイカレンダー
-  def calender
+  def calendar
   end
   
   def show

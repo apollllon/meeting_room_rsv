@@ -79,7 +79,7 @@
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -103,4 +103,20 @@ input {
   .form-control {
     color: red;
   }
+}
+
+/*
+ * fullcalender
+ */
+ 
+ /* 日曜日 */
+.fc-sun {
+    color: red;
+    background-color: #fff0f0;
+}
+ 
+/* 土曜日 */
+.fc-sat {
+    color: blue;
+    background-color: #f0f0ff;
 }

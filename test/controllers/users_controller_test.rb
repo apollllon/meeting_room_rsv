@@ -6,8 +6,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @other_user = users(:archer)
   end
   
-  test "should get calender" do
-    get users_calender_path
+  test "should get calendar" do
+    get users_calendar_path
     assert_response :success
   end
   

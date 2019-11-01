@@ -1,0 +1,19 @@
+<div class="mb-4">
+  <h2>開始時間</h2>
+  <%= @schedule.start_at %>
+  <h2>終了時間</h2>
+  <%= @schedule.end_at %>
+  <h2>タイトル</h2>
+  <%= @schedule.name %>
+  <h2>内容</h2>
+  <%= @schedule.content %>
+  <h2>予約会議室名</h2>
+  <%= @schedule.room.name %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= button_to "編集", "#", {method: :get, class: "col btn-secondary"} %>
+    <%= button_to "消去", "#", {method: :get, class: "col btn-danger"} %>
+  </div>
+</div>

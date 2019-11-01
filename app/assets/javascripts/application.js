@@ -27,21 +27,6 @@ $(document).ready (function(){
 
 $(document).ready (function(){
   $('#my-calendar').fullCalendar({
-    events: [
-    {
-      title  : 'event1',
-      start  : '2019-10-01'
-    },
-    {
-      title  : 'event2',
-      start  : '2019-10-05',
-      end    : '2019-10-07'
-    },
-    {
-      title  : 'event3',
-      start  : '2019-10-09T12:30:00',
-      allDay : false // will make the time show
-    }
-  ]
+    events: '/schedules.json'
   });
 });

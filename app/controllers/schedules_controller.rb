@@ -1,5 +1,9 @@
 class SchedulesController < ApplicationController
   
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+  
   def show
     @schedule = Schedule.find(params[:id])
   end
@@ -30,6 +34,23 @@ class SchedulesController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update_attributes(schedule_params)
+      flash[:success] = "#{@schedule.name}が更新されました。"
+      redirect_to @schedule
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    schedule = Schedule.find(params[:id])
+    flash[:success] = "#{schedule.name} を消去しました。"
+    schedule.destroy
+    redirect_to users_calendar_path
   end
   
   private

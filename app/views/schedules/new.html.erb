@@ -1,50 +1,10 @@
+<% provide(:button_text, '新規作成') %>
 <h2 class="pb-4">予約の新規作成</h2>
 
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= form_for @schedule do |f| %>
-        <%= render 'shared/schedule_error_messages', object: @schedule %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-        <div class="row pb-2">
-          <div class="col">
-            <%= f.label :start_at, "開始日時" %>
-            <%= raw sprintf(
-                  f.datetime_select(
-                    :start_at,
-                    use_month_numbers: true,
-                    start_year: 2000,
-                    end_year: (Time.now.year),
-                    default: Date.new(Time.now.year, Time.now.month, 1),
-                    date_separator: '%s'),
-                  '年 ', '月 ')
-            %>
-            <!--<%= f.time_field :start_at, class: 'form-control' %>-->
-          </div>
-          <div class="col">
-            <%= f.label :end_at, "終了日時" %>
-            <%= raw sprintf(
-                  f.datetime_select(
-                    :end_at,
-                    use_month_numbers: true,
-                    start_year: 2000,
-                    end_year: (Time.now.year),
-                    default: Date.new(Time.now.year, Time.now.month, 1),
-                    date_separator: '%s'),
-                  '年 ', '月 ')
-            %>
-            <!--<%= f.time_field :end_at, class: 'form-control' %>-->
-          </div>
-        </div>
-        
-        <%= f.label :name, "タイトル" %>
-        <%= f.text_field :name, class: 'form-control' %>
-        
-        <%= f.label :content, "内容" %>
-        <%= f.text_area :content, {class: 'form-control', rows: '6'} %>
-        
-        <%= f.submit "新規作成", class: "btn btn-primary" %>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>

@@ -4,7 +4,14 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find_by(params[:id])
   end
   
-  def index
+  # ユーザの所有するスケジュールをjson形式で取得
+  def myschedules
+    @user = User.find(current_user.id)
+    @schedules = @user.schedules
+  end
+
+  # ルームの所有するスケジュールをjson形式で取得
+  def rooomschedules
     @schedules = Schedule.all
   end
   

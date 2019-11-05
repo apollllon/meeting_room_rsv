@@ -27,6 +27,6 @@ $(document).ready (function(){
 
 $(document).ready (function(){
   $('#my-calendar').fullCalendar({
-    events: '/schedules.json'
+    events: '/myschedules'
   });
 });

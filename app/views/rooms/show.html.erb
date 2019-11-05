@@ -15,3 +15,11 @@
 
 <h2>使用可能時間</h2>
 <%= @room.open_at.strftime("%H:%M") %> ~ <%= @room.close_at.strftime("%H:%M") %>
+
+<script>
+  $(document).ready (function(){
+    $('#calendar').fullCalendar({
+      events: '/roomschedules/<%= params[:id] %>'
+    });
+  });
+</script>

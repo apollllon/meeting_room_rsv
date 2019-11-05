@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get '/myschedules', to: 'schedules#myschedules', defaults: {format: :json}
-  get '/myschedules', to: 'schedules#roomschedules', defaults: {format: :json}
+  get '/roomschedules/:id', to: 'schedules#roomschedules', defaults: {format: :json}
   
   resources :users
   resources :rooms

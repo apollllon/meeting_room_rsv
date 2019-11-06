@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   
   # マイカレンダー
   def calendar
+    @user = User.find(current_user.id)
+    @schedules = @user.schedules
   end
   
   def show

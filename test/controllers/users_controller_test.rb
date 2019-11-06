@@ -7,6 +7,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should get calendar" do
+    log_in_as(@user)
     get users_calendar_path
     assert_response :success
   end

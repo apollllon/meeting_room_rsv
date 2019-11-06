@@ -2,6 +2,7 @@ class SchedulesController < ApplicationController
   
   def edit
     @schedule = Schedule.find(params[:id])
+    @room = Room.find(@schedule.room_id)
   end
   
   def show

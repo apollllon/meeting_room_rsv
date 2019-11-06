@@ -10,9 +10,9 @@
             f.datetime_select(
               :start_at,
               use_month_numbers: true,
-              start_year: 2000,
-              end_year: (Time.now.year),
-              default: Date.new(Time.now.year, Time.now.month, 1),
+              start_year: (Time.current.year),
+              end_year: (Time.current.next_year.year),
+              default: Date.today + @room.open_at.hour.hours + @room.open_at.min.minutes,
               date_separator: '%s'),
             '年 ', '月 ')
       %>
@@ -24,9 +24,9 @@
             f.datetime_select(
               :end_at,
               use_month_numbers: true,
-              start_year: 2000,
-              end_year: (Time.now.year),
-              default: Date.new(Time.now.year, Time.now.month, 1),
+              start_year: (Time.current.year),
+              end_year: (Time.current.next_year.year),
+              default: Date.today + @room.close_at.hour.hours + @room.close_at.min.minutes,
               date_separator: '%s'),
             '年 ', '月 ')
       %>

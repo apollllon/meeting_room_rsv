@@ -19,7 +19,7 @@
 <script>
   $(document).ready (function(){
     $('#calendar').fullCalendar({
-      events: '/roomschedules/<%= params[:id] %>'
+      events: '/roomschedules/<%= @room.id %>'
     });
   });
 </script>

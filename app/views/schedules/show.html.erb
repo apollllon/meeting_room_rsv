@@ -1,8 +1,8 @@
 <div class="mb-4">
   <h2>開始時間</h2>
-  <%= @schedule.start_at %>
+  <%= @schedule.start_at.strftime("%Y年%m月%d日 %H:%M") %>
   <h2>終了時間</h2>
-  <%= @schedule.end_at %>
+  <%= @schedule.end_at.strftime("%Y年%m月%d日 %H:%M") %>
   <h2>タイトル</h2>
   <%= @schedule.name %>
   <h2>内容</h2>

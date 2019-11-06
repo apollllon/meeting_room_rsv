@@ -1,8 +1,10 @@
 <% provide(:button_text, '編集を保存') %>
-<h1><%= @schedule.name %> の編集</h1>
-<div class="row">
-  <div>
-    <%= render "form"%>
-    <%= button_to "消去", @schedule, {method: :delete, class: "btn-danger", data: {confirm: "本当に消去しますか？"}} %>
+<div class="container">
+  <h1><%= @schedule.name %> の編集</h1>
+  <div class="row">
+    <div>
+      <%= render "form"%>
+      <%= button_to "消去", @schedule, {method: :delete, class: "btn-danger", data: {confirm: "本当に消去しますか？"}} %>
+    </div>
   </div>
 </div>

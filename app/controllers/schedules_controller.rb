@@ -1,5 +1,7 @@
 class SchedulesController < ApplicationController
   
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
   def edit
     @schedule = Schedule.find(params[:id])
     @room = Room.find(@schedule.room_id)
@@ -57,5 +59,13 @@ class SchedulesController < ApplicationController
   private
     def schedule_params
       params.require(:schedule).permit(:name, :content, :start_at, :end_at, :room_id)
+    end
+    
+    def correct_user
+      @schedule = Schedule.find(params[:id])
+      unless current_user?(@schedule.user)
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to(rooms_path)
+      end
     end
 end

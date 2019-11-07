@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       unless current_user?(@user)
         flash[:danger] = "アクセス権限がありません。"
-        redirect_to(rooms_path)
+        redirect_to rooms_path
       end
     end
     

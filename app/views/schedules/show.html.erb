@@ -35,5 +35,7 @@
       <%= @schedule.room.name %>
     </div>
   </div>
-  <%= button_to "編集", edit_schedule_path, {method: :get, class: "col btn-primary"} %>
+  <% if current_user?(@schedule.user) %>
+    <%= button_to "編集", edit_schedule_path, {method: :get, class: "col btn-primary"} %>
+  <% end %>
 </div>

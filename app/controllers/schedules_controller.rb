@@ -16,7 +16,7 @@ class SchedulesController < ApplicationController
   end
 
   # ルームの所有するスケジュールをjson形式で取得
-  def rooomschedules
+  def roomschedules
     @room = Room.find(params[:id])
     @schedules = @room.schedules
   end

@@ -4,29 +4,33 @@
     <%= button_to "新規登録", new_room_path, {method: :get, class: "btn-primary col"} %>
   </div>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th scope="col">会議室名</th>
-      <th scope="col">収容人数</th>
-      <th scope="col">利用金額</th>
-      <th scope="col">使用可能時間</th>
-      <th scope="col"></th> <!-- 編集ボタン -->
-      <th scope="col"></th> <!-- カレンダーボタン -->
-    </tr>
-  </thead>
-  <tbody>
-    <% @rooms.each do |room| %>
-    <tr>
-      <th scope="row"><%= room.id %></th>
-      <td><%= room.name %></td>
-      <td><%= room.capacity %> 人</td>
-      <td><%= room.price %>円</td>
-      <td><%= room.open_at.strftime("%H:%M") %> ~ <%= room.close_at.strftime("%H:%M") %></td>
-      <td><%= button_to "編集", edit_room_path(room), {method: :get, data: {"turbolinks" => false}} %></td>
-      <td><%= button_to "カレンダー", room, {method: :get} %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @room %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th scope="col">会議室名</th>
+        <th scope="col">収容人数</th>
+        <th scope="col">利用金額</th>
+        <th scope="col">使用可能時間</th>
+        <th scope="col"></th> <!-- 編集ボタン -->
+        <th scope="col"></th> <!-- カレンダーボタン -->
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+      <tr>
+        <th scope="row"><%= room.id %></th>
+        <td><%= room.name %></td>
+        <td><%= room.capacity %> 人</td>
+        <td><%= room.price %>円</td>
+        <td><%= room.open_at.strftime("%H:%M") %> ~ <%= room.close_at.strftime("%H:%M") %></td>
+        <td><%= button_to "編集", edit_room_path(room), {method: :get, data: {"turbolinks" => false}} %></td>
+        <td><%= button_to "カレンダー", room, {method: :get} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>会議室は登録されていません。</h2>
+<% end %>

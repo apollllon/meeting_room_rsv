@@ -1,12 +1,31 @@
-<h2>マイページ</h2>
-
-<h4>姓</h4>
-<%= @user.l_name %>
-
-<h4>名</h4>
-<%= @user.f_name %>
-
-<h4>メールアドレス</h4>
-<%= @user.email %>
-
-<div class="container"><%= link_to "編集", edit_user_path %></div>
+<div class="container">
+  <h2>マイページ</h2>
+  <div class="row mb-3 mx-0">
+    <div class="card col mr-2 p-0">
+      <div class="card-header">
+        姓
+      </div>
+      <div class="card-body">
+        <%=  @user.l_name %>
+      </div>
+    </div>
+    
+    <div class="card col p-0">
+      <div class="card-header">
+        名
+      </div>
+      <div class="card-body">
+        <%= @user.f_name %>
+      </div>
+    </div>
+  </div>
+  <div class="card p-0 mb-3">
+    <div class="card-header">
+      メールアドレス
+    </div>
+    <div class="card-body">
+      <%= @user.email %>
+    </div>
+  </div>
+  <%= button_to "編集", edit_user_path, {class: "btn-primary", method: :get} %>
+</div>

@@ -3,15 +3,26 @@
 <% else %>
   <% provide(:login_or_rooms, login_path) %>
 <% end %>
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <%= link_to "会議室予約システム", yield(:login_or_rooms) , class: "navbar-brand col-sm-3 col-md-2 mr-0" %>
-  <ul class="navbar-nav px-3">
-    <% if logged_in? %>
-    <li class="nav-item text-nowrap">
-      <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %>
-    </li>
-    <% else %>
-      <%= link_to "ログイン", login_path, method: :get, class: "nav-link" %>
-    <% end %>
-  </ul>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap navbar-expand-md p-0">
+  <%= link_to "会議室予約システム", yield(:login_or_rooms) , class: "navbar-brand mr-0 ml-3" %>
+  
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav px-3 ml-auto">
+        <% if logged_in? %>
+          <li class="nav-item text-nowrap mr-2">
+            <span class="navbar-text text-white"><%= current_user.l_name + " " + current_user.f_name%></span>
+          </li>
+          <li class="nav-item text-nowrap">
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item text-nowrap">
+            <%= link_to "ログイン", login_path, method: :get, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
 </nav>

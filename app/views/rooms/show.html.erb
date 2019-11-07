@@ -1,20 +1,47 @@
-<div class="containe pb-4">
+
+<div class="container pb-4">
   <div class="row">
-    <div class="col-md-8"><h2 class="border-bottom mb-2"><%= @room.name %></h2></div>
+    <div class="col-md-8"><h2 class="border-bottom"><%= @room.name %></h2></div>
     <div class="col-md"><%= button_to "新規予約", new_schedule_path, {params: {room_id: @room.id}, method: :get, class: "btn-primary"} %></div>
   </div>
 </div>
 
-<div id="calendar"></div>
+<div class="container">
+  <div class="row mb-3">
+    <div class="card col mr-1 p-0">
+      <div class="card-header">
+        収容人数
+      </div>
+      <div class="card-body">
+        <%= @room.capacity %>
+      </div>
+    </div>
+    
+    <div class="card col mx-1 p-0">
+      <div class="card-header">
+        利用金額
+      </div>
+      <div class="card-body">
+        <%= @room.price %>
+      </div>
+    </div>
+    
+    <div class="card col ml-1 p-0">
+      <div class="card-header">
+        使用可能時間
+      </div>
+      <div class="card-body">
+        <%= @room.open_at.strftime("%H:%M") %> ~ <%= @room.close_at.strftime("%H:%M") %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w-75 pb-3">
+    <div id="calendar"></div>
+  </div>
 
-<h2 class="mt-3">収容人数</h2>
-<%= @room.capacity %>
-
-<h2>利用金額</h2>
-<%= @room.price %>
-
-<h2>使用可能時間</h2>
-<%= @room.open_at.strftime("%H:%M") %> ~ <%= @room.close_at.strftime("%H:%M") %>
+  <%= render "schedules_table" %>
+</div>
 
 <script>
   $(document).ready (function(){

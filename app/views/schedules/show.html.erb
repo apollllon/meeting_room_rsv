@@ -1,18 +1,39 @@
-<div class="mb-4">
-  <h2>開始時間</h2>
-  <%= @schedule.start_at.strftime("%Y年%m月%d日 %H:%M") %>
-  <h2>終了時間</h2>
-  <%= @schedule.end_at.strftime("%Y年%m月%d日 %H:%M") %>
-  <h2>タイトル</h2>
-  <%= @schedule.name %>
-  <h2>内容</h2>
-  <%= @schedule.content %>
-  <h2>予約会議室名</h2>
-  <%= @schedule.room.name %>
-</div>
-
 <div class="container">
-  <div class="row">
-    <%= button_to "編集", edit_schedule_path, {method: :get, class: "col btn-secondary"} %>
+  <h2 class="mb-3"><small>予約タイトル：</small> <%= @schedule.name %></h2>
+  <div class="row mb-3 mx-0">
+    <div class="card col mr-2 p-0">
+      <div class="card-header">
+        開始時間
+      </div>
+      <div class="card-body">
+        <%= @schedule.start_at.strftime("%Y年%m月%d日 %H:%M") %>
+      </div>
+    </div>
+    
+    <div class="card col p-0">
+      <div class="card-header">
+        終了時間
+      </div>
+      <div class="card-body">
+        <%= @schedule.end_at.strftime("%Y年%m月%d日 %H:%M") %>
+      </div>
+    </div>
   </div>
+  <div class="card p-0 mb-3">
+    <div class="card-header">
+      内容
+    </div>
+    <div class="card-body">
+      <%= @schedule.content %>
+    </div>
+  </div>
+  <div class="card p-0 mb-3">
+    <div class="card-header">
+      予約会議室名
+    </div>
+    <div class="card-body">
+      <%= @schedule.room.name %>
+    </div>
+  </div>
+  <%= button_to "編集", edit_schedule_path, {method: :get, class: "col btn-primary"} %>
 </div>

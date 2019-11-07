@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
   # カレンダーを表示,カレンダー上をクリックすると予定を作成できるようにする
   def show
     @room = Room.find(params[:id])
-    @schedules = @room.schedules
+    @schedules = @room.schedules.order(start_at: "ASC")
   end
   
   def new
